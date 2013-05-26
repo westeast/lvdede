@@ -302,6 +302,8 @@ class DedeHttpDown
             $this->m_error .= "打开远程主机出错!";
             return FALSE;
         }
+//         echo $this->reTry,'===<br>';
+//         print_r($this);
         $this->reTry++;
         if($this->GetHead("http-edition")=="HTTP/1.1")
         {
@@ -333,12 +335,18 @@ class DedeHttpDown
         }
         if(!isset($this->m_puthead["User-Agent"]))
         {
-            $this->m_puthead["User-Agent"] = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2)";
+            $this->m_puthead["User-Agent"] = "User-Agent: Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31";
         }
         if(!isset($this->m_puthead["Refer"]))
         {
             $this->m_puthead["Refer"] = "http://".$this->m_puthead["Host"];
         }
+//         if((!isset($this->m_puthead['Connection']))){
+//         	$this->m_puthead['Connection'] = 'Keep-Alive';
+//         }
+//         if((!isset($this->m_puthead['Accept-Encoding']))){
+//         	$this->m_puthead['Accept-Encoding'] = 'gzip,deflate,sdch';
+//         }
 
         foreach($this->m_puthead as $k=>$v)
         {

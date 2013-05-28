@@ -514,7 +514,7 @@ class DedeCollection
     function DownOnePage($dourl)
     {
         $this->cHttpDown->OpenUrl($dourl);
-        $html = $this->cHttpDown->GetHtml();//$html = file_get_contents($dourl);
+        $html = $this->cHttpDown->GetHtml();$html = file_get_contents($dourl);
         $this->cHttpDown->Close();
         $this->ChangeCode($html);
         return $html;
